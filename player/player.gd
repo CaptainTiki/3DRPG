@@ -56,5 +56,4 @@ func frame_camera_rotation() -> void:
 		deg_to_rad(max_camera_rotation)
 		)
 	
-	$SpringArm3D.global_transform = vertical_pivot.global_transform
 	_look = Vector2.ZERO
