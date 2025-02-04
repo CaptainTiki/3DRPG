@@ -4,6 +4,12 @@ extends CharacterBody3D
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 
+func _ready() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("Escape_Key"):
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
