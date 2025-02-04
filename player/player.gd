@@ -3,15 +3,16 @@ extends CharacterBody3D
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
+#Stores the x/y direction player is trying to look 
+var _look : Vector2 = Vector2.ZERO
+
+@export var mouse_sensitivity: float = 0.0025
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
-func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("Escape_Key"):
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-
 func _physics_process(delta: float) -> void:
+	frame_camera_rotation()
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -32,3 +33,15 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
+
+func _unhandled_input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("Escape_Key"):
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	
+	if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+		if event is InputEventMouseMotion:
+			_look = -event.relative * mouse_sensitivity
+
+func frame_camera_rotation() -> void:
+	$SpringArm3D.rotate_y(_look.x)
+	_look = Vector2.ZERO
