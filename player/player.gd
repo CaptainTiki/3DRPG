@@ -9,6 +9,8 @@ var _look : Vector2 = Vector2.ZERO
 @export var mouse_sensitivity: float = 0.0025
 @export var min_camera_rotation: float = -60
 @export var max_camera_rotation: float = 10
+@export var animation_smooth: float = 15.0
+
 @onready var horizontal_pivot: Node3D = $HorizontalPivot
 @onready var vertical_pivot: Node3D = $HorizontalPivot/VerticalPivot
 @onready var rig_pivot: Node3D = $RigPivot
@@ -68,4 +70,7 @@ func look_toward_direction(direction: Vector3, delta: float) -> void:
 		Vector3.UP,
 		true
 	)
-	rig_pivot.global_transform.basis = target_transform.basis
+	rig_pivot.global_transform = rig_pivot.global_transform.interpolate_with(
+		target_transform, 
+		1.0 - exp(-animation_smooth * delta)
+	)
