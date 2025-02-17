@@ -120,14 +120,14 @@ transform = Transform3D(0.459936, 0, -0.887952, 0, 1, 0, 0.887952, 0, 0.459936, 
 
 [node name="Enemies" type="Node3D" parent="."]
 
-[node name="Node3D" parent="Enemies" instance=ExtResource("6_hj4v4")]
+[node name="Enemy" parent="Enemies" instance=ExtResource("6_hj4v4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.9259, 0.999999, -19.4533)
 
-[node name="Node3D4" parent="Enemies" instance=ExtResource("6_hj4v4")]
+[node name="Enemy1" parent="Enemies" instance=ExtResource("6_hj4v4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.93395, 0.999999, -19.4533)
 
-[node name="Node3D2" parent="Enemies" instance=ExtResource("6_hj4v4")]
+[node name="Enemy2" parent="Enemies" instance=ExtResource("6_hj4v4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.2253, 0.999999, -11.6182)
 
-[node name="Node3D3" parent="Enemies" instance=ExtResource("6_hj4v4")]
+[node name="Enemy3" parent="Enemies" instance=ExtResource("6_hj4v4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.2253, 0.999999, 17.7071)

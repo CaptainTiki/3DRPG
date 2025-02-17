@@ -13,4 +13,4 @@ func _ready() -> void:
 
 
 func _on_health_component_defeat() -> void:
-	queue_free()
+	rig.travel("Defeat")
