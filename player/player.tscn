@@ -8,6 +8,7 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qvtay"]
 
 [node name="Player" type="CharacterBody3D"]
+collision_layer = 5
 script = ExtResource("1_kly4h")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -31,49 +32,49 @@ target = NodePath("../HorizontalPivot/VerticalPivot")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 
 [node name="Skeleton3D" parent="RigPivot/Rig/CharacterRig/GameRig" index="0"]
-bones/0/position = Vector3(1.39663e-14, 0.901042, -0.0481735)
-bones/2/rotation = Quaternion(0.000718669, -0.000374585, 0.00321378, 0.999995)
-bones/3/rotation = Quaternion(-0.0941599, -0.000349765, 0.00852158, 0.995521)
-bones/4/rotation = Quaternion(0.274991, 1.46546e-08, 9.29304e-08, 0.961447)
-bones/6/rotation = Quaternion(-0.158779, -1.17682e-07, -1.90185e-08, 0.987314)
-bones/7/position = Vector3(-3.29427e-08, 0.901042, -0.0481735)
-bones/8/position = Vector3(-7.33244e-08, 0.901042, -0.0481735)
-bones/9/position = Vector3(0.131144, 0.967246, -0.0351291)
-bones/9/rotation = Quaternion(0.99336, 0.0207041, -0.0310285, 0.108833)
-bones/11/rotation = Quaternion(0.413994, -0.000699788, 0.000318406, 0.91028)
-bones/13/rotation = Quaternion(-0.748902, 0.0118756, 0.0243916, 0.662125)
-bones/15/position = Vector3(-0.131144, 0.967246, -0.0351291)
-bones/15/rotation = Quaternion(0.973884, -0.00565205, 0.0274125, 0.225313)
-bones/17/rotation = Quaternion(0.438424, 0.00325717, -0.00158914, 0.898761)
-bones/19/rotation = Quaternion(-0.68564, -0.0281791, -0.000916804, 0.727395)
-bones/21/position = Vector3(0.0251286, 1.43105, 0.0438712)
-bones/21/rotation = Quaternion(-0.486098, -0.260978, -0.405312, 0.728918)
-bones/22/position = Vector3(0.189461, 1.46859, -0.0195497)
-bones/22/rotation = Quaternion(0.0410095, -0.161047, 0.974854, -0.148464)
-bones/23/rotation = Quaternion(7.41909e-08, -0.0231549, 6.22348e-08, 0.999732)
-bones/24/rotation = Quaternion(0.31547, -0.0231625, -0.0195103, 0.948452)
-bones/46/position = Vector3(-0.0113635, 1.43105, 0.0438712)
-bones/46/rotation = Quaternion(-0.49923, 0.233833, 0.386955, 0.73916)
-bones/47/position = Vector3(-0.170511, 1.46911, -0.0313057)
-bones/47/rotation = Quaternion(-0.0559962, -0.140151, 0.974506, 0.166015)
-bones/48/rotation = Quaternion(5.6106e-08, 0.0266517, 5.3222e-08, 0.999645)
-bones/49/rotation = Quaternion(0.35081, 0.0266531, 0.028946, 0.93562)
-bones/71/position = Vector3(0.127191, 1.35028, -0.0257753)
-bones/71/rotation = Quaternion(1.96195e-08, 0.608512, 0.793544, -4.6248e-08)
-bones/72/position = Vector3(-0.113426, 1.35028, -0.0257754)
-bones/72/rotation = Quaternion(1.96195e-08, 0.608512, 0.793544, -4.62479e-08)
+bones/0/position = Vector3(3.87763e-15, 0.896689, -0.0481736)
+bones/2/rotation = Quaternion(-0.00209098, -0.00042012, 0.00321483, 0.999993)
+bones/3/rotation = Quaternion(-0.0967142, -0.000382973, 0.00851993, 0.995276)
+bones/4/rotation = Quaternion(0.277315, 1.53281e-08, 9.15681e-08, 0.960779)
+bones/6/rotation = Quaternion(-0.155861, -1.17752e-07, -1.858e-08, 0.987779)
+bones/7/position = Vector3(-2.0739e-08, 0.896689, -0.0481734)
+bones/8/position = Vector3(-4.48106e-08, 0.896689, -0.0481735)
+bones/9/position = Vector3(0.131144, 0.962893, -0.0351291)
+bones/9/rotation = Quaternion(0.992939, 0.020914, -0.0309294, 0.112599)
+bones/11/rotation = Quaternion(0.422491, -0.000700595, 0.000326726, 0.906367)
+bones/13/rotation = Quaternion(-0.75257, 0.0118891, 0.0244094, 0.657952)
+bones/15/position = Vector3(-0.131144, 0.962893, -0.0351291)
+bones/15/rotation = Quaternion(0.972964, -0.005826, 0.0272917, 0.229265)
+bones/17/rotation = Quaternion(0.446398, 0.0033043, -0.00164852, 0.894827)
+bones/19/rotation = Quaternion(-0.689125, -0.0281976, -0.00066778, 0.724094)
+bones/21/position = Vector3(0.0251286, 1.42691, 0.0422981)
+bones/21/rotation = Quaternion(-0.493415, -0.25795, -0.399959, 0.728036)
+bones/22/position = Vector3(0.188476, 1.46374, -0.0240465)
+bones/22/rotation = Quaternion(0.05025, -0.159632, 0.974422, -0.149984)
+bones/23/rotation = Quaternion(5.93807e-08, -0.0156366, 5.24254e-08, 0.999878)
+bones/24/rotation = Quaternion(0.298279, -0.0156374, -0.0182326, 0.954176)
+bones/46/position = Vector3(-0.0113635, 1.42691, 0.0422981)
+bones/46/rotation = Quaternion(-0.512406, 0.219228, 0.373496, 0.741539)
+bones/47/position = Vector3(-0.166835, 1.46417, -0.0406387)
+bones/47/rotation = Quaternion(-0.0770492, -0.136529, 0.973067, 0.169006)
+bones/48/rotation = Quaternion(9.15012e-08, 0.0123319, 6.01893e-08, 0.999924)
+bones/49/rotation = Quaternion(0.331027, 0.0123324, 0.028941, 0.943097)
+bones/71/position = Vector3(0.127191, 1.34531, -0.0263871)
+bones/71/rotation = Quaternion(1.92975e-08, 0.613208, 0.789921, -4.64245e-08)
+bones/72/position = Vector3(-0.113426, 1.34531, -0.0263872)
+bones/72/rotation = Quaternion(1.92975e-08, 0.613208, 0.789921, -4.64245e-08)
 
 [node name="AnimationTree" parent="RigPivot/Rig" index="1"]
 parameters/MoveSpace/blend_position = -1.06245
 
 [node name="RightHandBone" parent="RigPivot/Rig" index="2"]
-transform = Transform3D(-0.962334, -0.270837, -0.0236799, 0.235364, -0.873541, 0.426063, -0.136079, 0.404442, 0.904383, -0.344336, 0.991718, -0.0107921)
+transform = Transform3D(-0.962342, -0.270806, -0.0237112, 0.241164, -0.890741, 0.385253, -0.125449, 0.365027, 0.922506, -0.340652, 0.98233, -0.029906)
 
 [node name="LeftHandBone" parent="RigPivot/Rig" index="3"]
-transform = Transform3D(-0.970517, 0.239098, 0.030489, -0.2179, -0.924395, 0.313072, 0.103039, 0.297199, 0.94924, 0.346269, 0.977926, -0.0355096)
+transform = Transform3D(-0.970513, 0.239109, 0.0305208, -0.221665, -0.935033, 0.276726, 0.0947055, 0.261801, 0.960464, 0.345287, 0.970279, -0.0488322)
 
 [node name="RayAttatchment" type="BoneAttachment3D" parent="RigPivot/Rig"]
-transform = Transform3D(-0.962334, -0.270837, -0.0236799, 0.235364, -0.873541, 0.426063, -0.136079, 0.404442, 0.904383, -0.344336, 0.991718, -0.0107921)
+transform = Transform3D(-0.962342, -0.270806, -0.0237112, 0.241164, -0.890741, 0.385253, -0.125449, 0.365027, 0.922506, -0.340652, 0.98233, -0.029906)
 bone_name = "DEF-hand.R"
 bone_idx = 51
 use_external_skeleton = true
