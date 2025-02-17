@@ -140,12 +140,6 @@ bones/71/rotation = Quaternion(-0.00431273, 0.517037, 0.855952, -0.000262253)
 bones/72/position = Vector3(-0.0723503, 1.30116, 0.0587189)
 bones/72/rotation = Quaternion(-0.00431273, 0.517037, 0.855952, -0.000262253)
 
-[node name="Knight_02" parent="RigPivot/Rig/CharacterRig/GameRig/Skeleton3D" index="1"]
-visible = false
-
-[node name="Villager_02" parent="RigPivot/Rig/CharacterRig/GameRig/Skeleton3D" index="3"]
-visible = true
-
 [node name="AnimationTree" parent="RigPivot/Rig" index="1"]
 parameters/MoveSpace/blend_position = -1.06245
 
