@@ -11,6 +11,7 @@ extends CharacterBody3D
 @onready var vertical_pivot: Node3D = $HorizontalPivot/VerticalPivot
 @onready var rig_pivot: Node3D = $RigPivot
 @onready var rig: Node3D = $RigPivot/Rig
+@onready var attack_raycast: RayCast3D = %AttackRaycast
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
@@ -79,6 +80,7 @@ func slash_attack() -> void:
 	_attack_direction = get_movement_direction()
 	if _attack_direction.is_zero_approx():
 		_attack_direction = rig.global_basis * Vector3(0,0,1) #0,0,1 is the facing direction of the player
+	attack_raycast.clear_exceptions()
 
 func handle_idle_physics_frame(delta: float, direction:Vector3) -> void:
 	if not rig.is_idle():
@@ -98,6 +100,7 @@ func handle_slashing_physics_frame(delta: float) -> void:
 	velocity.x = _attack_direction.x * attack_move_speed
 	velocity.z = _attack_direction.z * attack_move_speed
 	look_toward_direction(_attack_direction, delta)
+	attack_raycast.deal_damage()
 
 func handle_jump_physics_frame() -> void:
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
