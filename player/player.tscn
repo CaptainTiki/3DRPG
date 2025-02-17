@@ -28,3 +28,4 @@ target = NodePath("../HorizontalPivot/VerticalPivot")
 
 [node name="Rig" parent="RigPivot" instance=ExtResource("3_fah68")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+animation_speed = 10.0
