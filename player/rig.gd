@@ -47,7 +47,3 @@ func set_active_mesh(active_mesh:MeshInstance3D) -> void:
 func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "Overhead":
 		heavy_attack.emit()
-
-
-func _on_heavy_attack() -> void:
-	pass # Replace with function body.

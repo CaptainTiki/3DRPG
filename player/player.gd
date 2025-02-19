@@ -13,6 +13,8 @@ class_name Player
 @onready var rig_pivot: Node3D = $RigPivot
 @onready var rig: Node3D = $RigPivot/Rig
 @onready var attack_raycast: RayCast3D = %AttackRaycast
+@onready var health_component: HealthComponent = $HealthComponent
+@onready var collision_shape_3d: CollisionShape3D = $CollisionShape3D
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
@@ -23,6 +25,7 @@ var _attack_direction := Vector3.ZERO
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	health_component.update_max_health(30.0)
 
 func _physics_process(delta: float) -> void:
 	frame_camera_rotation()
@@ -107,3 +110,9 @@ func handle_jump_physics_frame() -> void:
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 	pass
+
+
+func _on_health_component_defeat() -> void:
+	rig.travel("Defeat") #animate the death animation
+	collision_shape_3d.disabled = true #disable collision with this char
+	set_physics_process(false) #turn off gravity

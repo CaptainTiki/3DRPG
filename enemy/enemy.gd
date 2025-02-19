@@ -23,9 +23,11 @@ func check_for_attacks() -> void:
 		if collider is Player:
 			rig.travel("Overhead")
 
-
-
 func _on_health_component_defeat() -> void:
 	rig.travel("Defeat") #animate the death animation
 	collision_shape_3d.disabled = true #disable collision with this char
 	set_physics_process(false) #turn off gravity
+
+
+func _on_rig_heavy_attack() -> void:
+	pass
