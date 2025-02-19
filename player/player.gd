@@ -27,6 +27,8 @@ var _look : Vector2 = Vector2.ZERO
 #Stores direction player is moving when attacking
 var _attack_direction := Vector3.ZERO
 
+var debug_on := false
+
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	health_component.update_max_health(30.0)
@@ -51,6 +53,19 @@ func _unhandled_input(event: InputEvent) -> void:
 	if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		if event is InputEventMouseMotion:
 			_look = -event.relative * mouse_sensitivity
+	
+	if Input.is_action_just_pressed("Debug_On"):
+		if debug_on == true:
+			debug_on = false
+			print("Debug Off")
+		else:
+			debug_on = true
+			print("Debug On")
+	
+	if Input.is_action_just_pressed("Level_Up"):
+		if debug_on == true:
+			print("leveling up")
+			stats.level_up()
 	
 	if rig.is_idle():
 		if event.is_action_pressed("Left_Click"):

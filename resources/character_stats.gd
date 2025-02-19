@@ -22,7 +22,18 @@ class Ability:
 		ability_score += randi_range(2, 5)
 
 var level : int = 1
-var xp : int = 1
+var xp : int = 1:
+	set(value):
+		xp = value
+		print(xp)
+		var boundary = percentage_level_up_boundary()
+		print("XP: ", xp, " of: ", boundary)
+		
+		while xp > boundary:
+			
+			xp -= boundary
+			level_up()
+			boundary = percentage_level_up_boundary()
 
 #damage bonus on attack
 var strength := Ability.new(2.0, 12.0)
@@ -48,4 +59,10 @@ func level_up() -> void:
 		agility.increase()
 		speed.increase()
 		endurance.increase()
-		printt(strength.ability_score, agility.ability_score, speed.ability_score, endurance.ability_score)
+		print("level: ", level)
+
+func percentage_level_up_boundary() -> int: #lower beginning, rapid increase, crazy endgame
+	return int(50 * pow(1.2,level))
+
+func cubic_level_up_boundary() -> int: #quicker ramp up at start, steady curve, lower end game
+	return int(50 + pow(level, 3))
