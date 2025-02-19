@@ -39,7 +39,7 @@ func is_slashing() -> bool:
 	return playback.get_current_node() == "Slash"
 
 func is_overhead_attack() -> bool:
-	return playback.get_current_node() == "Overhead"
+	return playback.get_current_node() in ["Overhead", "OverheadRecover"]
 	pass
 
 func is_dashing() -> bool:

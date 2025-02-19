@@ -13,6 +13,10 @@ var time_remaining : float = 0.0
 func _unhandled_input(event: InputEvent) -> void:
 	if not timer.is_stopped():
 		return
+		
+	if not player.is_physics_processing(): #player is dead or paused
+		return
+		
 	if Input.is_action_just_pressed("Dash"):
 		direction = player.get_movement_direction()
 		
