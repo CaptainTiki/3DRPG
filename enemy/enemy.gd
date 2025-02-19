@@ -20,7 +20,8 @@ func _physics_process(delta: float) -> void:
 func check_for_attacks() -> void:
 	for collision_id in player_detector.get_collision_count():
 		var collider = player_detector.get_collider(collision_id)
-		print(collider)
+		if collider is Player:
+			rig.travel("Overhead")
 
 
 
