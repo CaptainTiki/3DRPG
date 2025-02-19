@@ -42,6 +42,10 @@ func is_overhead_attack() -> bool:
 	return playback.get_current_node() == "Overhead"
 	pass
 
+func is_dashing() -> bool:
+	return playback.get_current_node() == "Dash"
+	pass
+
 func set_active_mesh(active_mesh:MeshInstance3D) -> void:
 	for child in skeleton_3d.get_children():
 		child.visible = false
