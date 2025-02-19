@@ -5,8 +5,9 @@ class_name Player
 @export var min_camera_rotation: float = -60
 @export var max_camera_rotation: float = 10
 @export var animation_smooth: float = 15.0
-
 @export var attack_move_speed: float = 3.0
+@export_category("RPG Stats")
+@export var stats : CharacterStats 
 
 @onready var horizontal_pivot: Node3D = $HorizontalPivot
 @onready var vertical_pivot: Node3D = $HorizontalPivot/VerticalPivot
