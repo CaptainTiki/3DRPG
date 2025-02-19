@@ -15,6 +15,8 @@ class_name Player
 @onready var attack_raycast: RayCast3D = %AttackRaycast
 @onready var health_component: HealthComponent = $HealthComponent
 @onready var collision_shape_3d: CollisionShape3D = $CollisionShape3D
+@onready var area_attack: ShapeCast3D = $RigPivot/AreaAttack
+
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
@@ -34,6 +36,7 @@ func _physics_process(delta: float) -> void:
 	handle_jump_physics_frame()
 	handle_idle_physics_frame(delta, direction)
 	handle_slashing_physics_frame(delta)
+	handle_overhead_attack_physics_frame()
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -50,6 +53,8 @@ func _unhandled_input(event: InputEvent) -> void:
 	if rig.is_idle():
 		if event.is_action_pressed("Left_Click"):
 			slash_attack()
+		elif event.is_action_pressed("Right_Click"):
+			overhead_attack()
 
 func get_movement_direction() -> Vector3:
 	var input_dir := Input.get_vector("Left_Strafe", "Right_Strafe", "Forward", "Backward")
@@ -86,6 +91,13 @@ func slash_attack() -> void:
 		_attack_direction = rig.global_basis * Vector3(0,0,1) #0,0,1 is the facing direction of the player
 	attack_raycast.clear_exceptions()
 
+func overhead_attack() -> void:
+	rig.travel("Overhead")
+	_attack_direction = get_movement_direction()
+	if _attack_direction.is_zero_approx():
+		_attack_direction = rig.global_basis * Vector3(0,0,1) #0,0,1 is the facing direction of the player
+	attack_raycast.clear_exceptions()
+
 func handle_idle_physics_frame(delta: float, direction:Vector3) -> void:
 	if not rig.is_idle():
 		return
@@ -106,6 +118,12 @@ func handle_slashing_physics_frame(delta: float) -> void:
 	look_toward_direction(_attack_direction, delta)
 	attack_raycast.deal_damage()
 
+func handle_overhead_attack_physics_frame() -> void:
+	if not rig.is_overhead_attack():
+		return
+	velocity = Vector3.ZERO
+	pass
+
 func handle_jump_physics_frame() -> void:
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
@@ -116,3 +134,7 @@ func _on_health_component_defeat() -> void:
 	rig.travel("Defeat") #animate the death animation
 	collision_shape_3d.disabled = true #disable collision with this char
 	set_physics_process(false) #turn off gravity
+
+
+func _on_rig_heavy_attack() -> void:
+	area_attack.deal_damage(50.0)

@@ -36,7 +36,11 @@ func is_idle() -> bool:
 	return playback.get_current_node() == "MoveSpace" #MoveSpace is the name of the animation tree node
 
 func is_slashing() -> bool:
-	return playback.get_current_node() == "Slash" 
+	return playback.get_current_node() == "Slash"
+
+func is_overhead_attack() -> bool:
+	return playback.get_current_node() == "Overhead"
+	pass
 
 func set_active_mesh(active_mesh:MeshInstance3D) -> void:
 	for child in skeleton_3d.get_children():
