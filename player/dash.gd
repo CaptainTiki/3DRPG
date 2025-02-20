@@ -23,7 +23,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		if not direction.is_zero_approx(): #if direction is approx zero - then we aren't moving
 			player.rig.travel("Dash")
 			gpu_particles_3d.emitting = true
-			timer.start(1.0)
+			timer.start(player.stats.get_dash_cooldown())
 			time_remaining = dash_duration
 
 func _physics_process(delta: float) -> void:
