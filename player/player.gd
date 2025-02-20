@@ -30,7 +30,8 @@ var debug_on := false
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	health_component.update_max_health(30.0)
+	health_component.update_max_health(stats.get_max_hp())
+	stats.level_up_notification.connect(func(): health_component.update_max_health(stats.get_max_hp()))
 
 func _physics_process(delta: float) -> void:
 	frame_camera_rotation()

@@ -1,6 +1,8 @@
 extends Resource
 class_name CharacterStats
 
+signal level_up_notification()
+
 class Ability:
 	var min_modifier: float
 	var max_modifier: float
@@ -53,13 +55,16 @@ func get_damage_modifier() -> float:
 func get_crit_chance() -> float:
 	return agility.get_modifier()
 
+func get_max_hp() -> int:
+	return 20 + int(level * endurance.get_modifier())
+
 func level_up() -> void:
 		level += 1
 		strength.increase()
 		agility.increase()
 		speed.increase()
 		endurance.increase()
-		print("level: ", level)
+		level_up_notification.emit()
 
 func percentage_level_up_boundary() -> int: #lower beginning, rapid increase, crazy endgame
 	return int(50 * pow(1.2,level))
