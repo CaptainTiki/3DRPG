@@ -2,7 +2,7 @@ extends CharacterBody3D
 class_name Enemy
 
 @export var max_health: float = 20.0
-@export var xp_value: float = 25
+@export var xp_value: int = 25
 
 @onready var rig: Node3D = $Rig
 @onready var health_component: HealthComponent = $HealthComponent

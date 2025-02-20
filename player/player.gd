@@ -19,7 +19,6 @@ class_name Player
 @onready var area_attack: ShapeCast3D = $RigPivot/AreaAttack
 
 
-const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 const DECAY = 8.0
 #Stores the x/y direction player is trying to look 
@@ -62,10 +61,9 @@ func _unhandled_input(event: InputEvent) -> void:
 			debug_on = true
 			print("Debug On")
 	
-	if Input.is_action_just_pressed("Level_Up"):
+	if Input.is_action_just_pressed("Gain_XP"):
 		if debug_on == true:
-			print("leveling up")
-			stats.level_up()
+			stats.xp += 10000
 	
 	if rig.is_idle():
 		if event.is_action_pressed("Left_Click"):
@@ -118,8 +116,8 @@ func overhead_attack() -> void:
 func handle_idle_physics_frame(delta: float, direction:Vector3) -> void:
 	if not rig.is_idle() and not rig.is_dashing():
 		return
-	velocity.x = exponential_decay(velocity.x, direction.x * SPEED, DECAY, delta)
-	velocity.z = exponential_decay(velocity.z, direction.z * SPEED, DECAY, delta)
+	velocity.x = exponential_decay(velocity.x, direction.x * stats.get_base_speed(), DECAY, delta)
+	velocity.z = exponential_decay(velocity.z, direction.z * stats.get_base_speed(), DECAY, delta)
 	#if there is a direction of movement - point that way
 	if direction:
 		look_toward_direction(direction, delta)
@@ -130,7 +128,7 @@ func handle_slashing_physics_frame(delta: float) -> void:
 	velocity.x = _attack_direction.x * attack_move_speed
 	velocity.z = _attack_direction.z * attack_move_speed
 	look_toward_direction(_attack_direction, delta)
-	attack_raycast.deal_damage()
+	attack_raycast.deal_damage(10.0 + stats.get_damage_modifier())
 
 func handle_overhead_attack_physics_frame() -> void:
 	if not rig.is_overhead_attack():
@@ -151,7 +149,7 @@ func _on_health_component_defeat() -> void:
 
 
 func _on_rig_heavy_attack() -> void:
-	area_attack.deal_damage(50.0)
+	area_attack.deal_damage(10.0 + stats.get_damage_modifier())
 
 func exponential_decay(a: float, b: float, decay: float, delta: float) -> float:
 	return b + (a - b) * exp(-decay * delta)

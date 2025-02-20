@@ -15,7 +15,7 @@ class Ability:
 	func percentile_lerp(min_boundary: float, max_boundary: float)-> float:
 		return lerp(min_boundary, max_boundary, ability_score / 100.0)
 	
-	func get_modifer() -> float:
+	func get_modifier() -> float:
 		return percentile_lerp(min_modifier, max_modifier)
 	
 	func increase() -> void:
@@ -48,10 +48,10 @@ func get_base_speed() -> float:
 	return speed.get_modifier()
 
 func get_damage_modifier() -> float:
-	return strength.get_modifer()
+	return strength.get_modifier()
 
 func get_crit_chance() -> float:
-	return agility.get_modifer()
+	return agility.get_modifier()
 
 func level_up() -> void:
 		level += 1
