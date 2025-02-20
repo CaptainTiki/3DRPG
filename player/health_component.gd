@@ -1,6 +1,8 @@
 extends Node
 class_name HealthComponent
 
+@export var body: PhysicsBody3D
+
 signal defeat()
 signal health_changed()
 
@@ -20,4 +22,5 @@ func take_damage(damage_in: float, is_critical: bool) -> void:
 	var damage = damage_in
 	if is_critical:
 		damage *= 2.0
-	current_health -= damage_in
+	current_health -= damage
+	VfxManager.spawn_damage_number(damage, Color.RED, body.global_position )
