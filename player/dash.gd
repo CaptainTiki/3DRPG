@@ -10,7 +10,7 @@ var direction : Vector3 = Vector3.ZERO
 var dash_duration : float = 0.1
 var time_remaining : float = 0.0
 
-func _unhandled_input(event: InputEvent) -> void:
+func _unhandled_input(_event: InputEvent) -> void:
 	if not timer.is_stopped():
 		return
 		

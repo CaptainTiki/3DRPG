@@ -49,10 +49,7 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 	move_and_slide()
 
-func _unhandled_input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("Escape_Key"):
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	
+func _unhandled_input(event: InputEvent) -> void:	
 	if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		if event is InputEventMouseMotion:
 			_look = -event.relative * mouse_sensitivity

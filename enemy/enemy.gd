@@ -17,7 +17,7 @@ func _ready() -> void:
 	rig.set_active_mesh(rig.villager_meshes.pick_random())
 	health_component.update_max_health(max_health)
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if rig.is_idle():
 		check_for_attacks()
 

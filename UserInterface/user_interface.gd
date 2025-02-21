@@ -8,7 +8,7 @@ extends Control
 
 @export var player : Player
 
-func _unhandled_input(event: InputEvent) -> void:
+func _unhandled_input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("Open_Menu"):
 		if not inventory.visible:
 			open_menu()
@@ -27,8 +27,10 @@ func update_health() -> void:
 
 func open_menu() -> void:
 	inventory.visible = true
-	pass
+	get_tree().paused = true
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 func close_menu() -> void:
 	inventory.visible = false
-	pass
+	get_tree().paused = false
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
