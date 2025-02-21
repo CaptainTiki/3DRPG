@@ -1,7 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://duroi45niqbuu"]
+[gd_scene load_steps=13 format=3 uid="uid://duroi45niqbuu"]
 
+[ext_resource type="Script" path="res://UserInterface/inventory.gd" id="1_5xa36"]
 [ext_resource type="Texture2D" uid="uid://fv6lf04rkcqe" path="res://Assets/UIAssets/Window/window_header.png" id="1_r1yhr"]
 [ext_resource type="FontFile" uid="uid://b0qpr01oiamh7" path="res://Assets/Fonts/Libre_Caslon_Text/LibreCaslonText-Bold.ttf" id="2_nhlud"]
+[ext_resource type="StyleBox" uid="uid://c4uf80nqhcjt8" path="res://UserInterface/UI_Panel.tres" id="3_sddwn"]
+[ext_resource type="Texture2D" uid="uid://8q1svgle1hmh" path="res://Assets/UIAssets/Icons/spell_slot_empty.png" id="5_us7of"]
+[ext_resource type="FontFile" uid="uid://ckdo07woiqi3u" path="res://Assets/Fonts/Libre_Caslon_Text/LibreCaslonText-Italic.ttf" id="6_ydit8"]
 
 [sub_resource type="Gradient" id="Gradient_3ojj5"]
 offsets = PackedFloat32Array(0, 0.896104, 1)
@@ -14,7 +18,24 @@ fill_to = Vector2(0, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_wj8k1"]
 font = ExtResource("2_nhlud")
 font_size = 48
-font_color = Color(0.952941, 0.964706, 0.411765, 1)
+font_color = Color(0.960784, 0.717647, 0.423529, 1)
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_c2ocs"]
+font = ExtResource("2_nhlud")
+font_size = 26
+font_color = Color(0.960784, 0.717647, 0.423529, 1)
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_rtgra"]
+font = ExtResource("6_ydit8")
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_m67lw"]
+font = ExtResource("2_nhlud")
+font_size = 27
+font_color = Color(0.960784, 0.717647, 0.423529, 1)
+shadow_color = Color(0, 0, 0, 1)
 
 [node name="Inventory" type="Control"]
 layout_mode = 3
@@ -23,6 +44,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_5xa36")
 
 [node name="BackgroundGradient" type="TextureRect" parent="."]
 layout_mode = 1
@@ -64,3 +86,155 @@ text = "Inventory"
 label_settings = SubResource("LabelSettings_wj8k1")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="HeldItems" type="PanelContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(960, 0)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("3_sddwn")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(512, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(384, 0)
+layout_mode = 2
+
+[node name="CharacterSheet" type="PanelContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("3_sddwn")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/CharacterSheet"]
+layout_mode = 2
+
+[node name="LevelDisplayLevel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/CharacterSheet/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Level: 1"
+label_settings = SubResource("LabelSettings_c2ocs")
+horizontal_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/CharacterSheet/VBoxContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="AttributeSTR" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/CharacterSheet/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+texture = ExtResource("5_us7of")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/CharacterSheet/VBoxContainer/GridContainer/AttributeSTR"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AttributeName" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/CharacterSheet/VBoxContainer/GridContainer/AttributeSTR/VBoxContainer"]
+layout_mode = 2
+text = "Strength"
+label_settings = SubResource("LabelSettings_rtgra")
+horizontal_alignment = 1
+uppercase = true
+
+[node name="StrengthValue" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/CharacterSheet/VBoxContainer/GridContainer/AttributeSTR/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "00"
+label_settings = SubResource("LabelSettings_m67lw")
+horizontal_alignment = 1
+
+[node name="AttributeAGI" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/CharacterSheet/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+texture = ExtResource("5_us7of")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/CharacterSheet/VBoxContainer/GridContainer/AttributeAGI"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AttributeName" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/CharacterSheet/VBoxContainer/GridContainer/AttributeAGI/VBoxContainer"]
+layout_mode = 2
+text = "Agility
+"
+label_settings = SubResource("LabelSettings_rtgra")
+horizontal_alignment = 1
+uppercase = true
+
+[node name="AgilityValue" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/CharacterSheet/VBoxContainer/GridContainer/AttributeAGI/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "00"
+label_settings = SubResource("LabelSettings_m67lw")
+horizontal_alignment = 1
+
+[node name="Attribute3" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/CharacterSheet/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+texture = ExtResource("5_us7of")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/CharacterSheet/VBoxContainer/GridContainer/Attribute3"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AttributeEND" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/CharacterSheet/VBoxContainer/GridContainer/Attribute3/VBoxContainer"]
+layout_mode = 2
+text = "Endurance
+"
+label_settings = SubResource("LabelSettings_rtgra")
+horizontal_alignment = 1
+uppercase = true
+
+[node name="EnduranceValue" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/CharacterSheet/VBoxContainer/GridContainer/Attribute3/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "00"
+label_settings = SubResource("LabelSettings_m67lw")
+horizontal_alignment = 1
+
+[node name="Attribute4" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/CharacterSheet/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+texture = ExtResource("5_us7of")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/CharacterSheet/VBoxContainer/GridContainer/Attribute4"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AttributeSPD" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/CharacterSheet/VBoxContainer/GridContainer/Attribute4/VBoxContainer"]
+layout_mode = 2
+text = "Speed
+"
+label_settings = SubResource("LabelSettings_rtgra")
+horizontal_alignment = 1
+uppercase = true
+
+[node name="SpeedValue" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/CharacterSheet/VBoxContainer/GridContainer/Attribute4/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "00"
+label_settings = SubResource("LabelSettings_m67lw")
+horizontal_alignment = 1
