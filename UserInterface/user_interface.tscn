@@ -1,0 +1,65 @@
+[gd_scene load_steps=6 format=3 uid="uid://b46jku7r77fry"]
+
+[ext_resource type="Script" path="res://UserInterface/user_interface.gd" id="1_3gax5"]
+[ext_resource type="Texture2D" uid="uid://cuu7luua8hkhv" path="res://Assets/UIAssets/Unitframe/HealthBarUnder.png" id="1_qqgca"]
+[ext_resource type="Texture2D" uid="uid://bks5hg43bx06a" path="res://Assets/UIAssets/Unitframe/HealthBarOver.png" id="2_4sumj"]
+[ext_resource type="FontFile" uid="uid://b0qpr01oiamh7" path="res://Assets/Fonts/Libre_Caslon_Text/LibreCaslonText-Bold.ttf" id="3_ddly2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_mgli8"]
+font = ExtResource("3_ddly2")
+font_size = 26
+font_color = Color(0.960784, 0.717647, 0.423529, 1)
+
+[node name="UserInterface" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_3gax5")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="InfoBar" type="Control" parent="MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="HealthBarUnder" type="TextureRect" parent="MarginContainer/InfoBar"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+texture = ExtResource("1_qqgca")
+
+[node name="HealthBarOver" type="TextureRect" parent="MarginContainer/InfoBar"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+texture = ExtResource("2_4sumj")
+
+[node name="LevelLabel" type="Label" parent="MarginContainer/InfoBar/HealthBarOver"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(95, 0)
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 95.0
+grow_vertical = 2
+text = "999"
+label_settings = SubResource("LabelSettings_mgli8")
+horizontal_alignment = 1
+vertical_alignment = 1

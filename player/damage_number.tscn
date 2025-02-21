@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cv28hshsq52ua"]
+[gd_scene load_steps=6 format=3 uid="uid://cv28hshsq52ua"]
 
 [ext_resource type="Script" path="res://player/damage_number.gd" id="1_5lhml"]
+[ext_resource type="FontFile" uid="uid://b0qpr01oiamh7" path="res://Assets/Fonts/Libre_Caslon_Text/LibreCaslonText-Bold.ttf" id="2_c1427"]
 
 [sub_resource type="Animation" id="Animation_jhlur"]
 resource_name = "Disappear"
@@ -83,6 +84,7 @@ script = ExtResource("1_5lhml")
 billboard = 1
 no_depth_test = true
 text = "25"
+font = ExtResource("2_c1427")
 font_size = 64
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
