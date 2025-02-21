@@ -1,0 +1,66 @@
+[gd_scene load_steps=6 format=3 uid="uid://duroi45niqbuu"]
+
+[ext_resource type="Texture2D" uid="uid://fv6lf04rkcqe" path="res://Assets/UIAssets/Window/window_header.png" id="1_r1yhr"]
+[ext_resource type="FontFile" uid="uid://b0qpr01oiamh7" path="res://Assets/Fonts/Libre_Caslon_Text/LibreCaslonText-Bold.ttf" id="2_nhlud"]
+
+[sub_resource type="Gradient" id="Gradient_3ojj5"]
+offsets = PackedFloat32Array(0, 0.896104, 1)
+colors = PackedColorArray(0.12549, 0.0862745, 0.113725, 1, 0.670588, 0.176471, 0.164706, 1, 0.662745, 0.419608, 0.2, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4tuiv"]
+gradient = SubResource("Gradient_3ojj5")
+fill_to = Vector2(0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_wj8k1"]
+font = ExtResource("2_nhlud")
+font_size = 48
+font_color = Color(0.952941, 0.964706, 0.411765, 1)
+
+[node name="Inventory" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BackgroundGradient" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_4tuiv")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="HeaderTexture" type="TextureRect" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_r1yhr")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HeaderTexture"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Inventory"
+label_settings = SubResource("LabelSettings_wj8k1")
+horizontal_alignment = 1
+vertical_alignment = 1
