@@ -11,6 +11,8 @@ class_name Enemy
 @onready var player_detector: ShapeCast3D = $Rig/PlayerDetector
 @onready var area_attack: ShapeCast3D = $Rig/AreaAttack
 
+@onready var navigation_agent_3d: NavigationAgent3D = $NavigationAgent3D
+
 @onready var player: Player = get_tree().get_first_node_in_group("Player")
 
 func _ready() -> void:
@@ -18,6 +20,11 @@ func _ready() -> void:
 	health_component.update_max_health(max_health)
 
 func _physics_process(_delta: float) -> void:
+	var velocity_target := Vector3.ZERO
+	navigation_agent_3d.target_position = player.global_position
+	navigation_agent_3d.get_next_path_position()
+	orient_rig(navigation_agent_3d.get_next_path_position())
+	
 	if rig.is_idle():
 		check_for_attacks()
 
@@ -33,6 +40,11 @@ func _on_health_component_defeat() -> void:
 	collision_shape_3d.disabled = true #disable collision with this char
 	set_physics_process(false) #turn off gravity
 
-
 func _on_rig_heavy_attack() -> void:
 	area_attack.deal_damage(20.0, crit_rate)
+
+func orient_rig(target_position: Vector3) -> void:
+	target_position.y = rig.global_position.y
+	if rig.global_position.is_equal_approx(target_position):
+		return
+	rig.look_at(target_position, Vector3.UP, true)
