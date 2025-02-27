@@ -52,6 +52,12 @@ environment = SubResource("Environment_8v3kh")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.834098, 0.477714, -0.275808, 0, 0.5, 0.866025, 0.551617, -0.72235, 0.417049, 0, 0, 0)
 shadow_enabled = true
+directional_shadow_split_1 = 0.252
+directional_shadow_split_2 = 0.684
+directional_shadow_split_3 = 0.782
+directional_shadow_blend_splits = true
+directional_shadow_fade_start = 0.669
+directional_shadow_max_distance = 151.4
 
 [node name="VoxelGI" type="VoxelGI" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -4)
