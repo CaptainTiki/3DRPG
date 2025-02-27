@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c1kkmug6t7vmq"]
+[gd_scene load_steps=23 format=3 uid="uid://c1kkmug6t7vmq"]
 
 [ext_resource type="PackedScene" uid="uid://c65uqhkycx504" path="res://player/player.tscn" id="1_fy2bd"]
 [ext_resource type="VoxelGIData" uid="uid://dfdqd2o6my6vy" path="res://levels/GI_data/level.VoxelGI_data.res" id="1_x6fi0"]
@@ -12,6 +12,11 @@
 [ext_resource type="PackedScene" uid="uid://dwjl6ghp3gkp2" path="res://Assets/Environment/Turret_Square_Bldg_02.glb" id="7_toyse"]
 [ext_resource type="PackedScene" uid="uid://b7f44tjghe0tf" path="res://Assets/Environment/House_Modular_01.glb" id="8_clwv8"]
 [ext_resource type="PackedScene" uid="uid://ky8msis0bsoq" path="res://Assets/Environment/Vine_Vege_01.glb" id="9_cc883"]
+[ext_resource type="PackedScene" uid="uid://jsiyny3p6hs7" path="res://Assets/Environment/Path_Gravel_Env_01.glb" id="11_i550y"]
+[ext_resource type="PackedScene" uid="uid://dxmd4xtnrab4j" path="res://Assets/Environment/Path_Stepping_Stone_Env_01.glb" id="12_kqfjv"]
+[ext_resource type="PackedScene" uid="uid://yoenn8kmrmb6" path="res://Assets/Environment/Path_Stepping_Stone_Env_02.glb" id="13_351rl"]
+[ext_resource type="PackedScene" uid="uid://b7h1aeko10cdb" path="res://Assets/Environment/Path_Cobblestone_Env_04.glb" id="14_e0psl"]
+[ext_resource type="PackedScene" uid="uid://cjlrtbusdcei3" path="res://Assets/Environment/Large_Mountain_Env_02.glb" id="15_l5wtx"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vpcs3"]
 sky_top_color = Color(0.1375, 0.309375, 0.55, 1)
@@ -185,6 +190,94 @@ transform = Transform3D(-0.692052, 0.346252, 0, 0.344532, 0.695507, 0, 0, 0, 1, 
 
 [node name="Vine_Vege_015" parent="NavigationRegion3D/Castle/Gate_Wall_Stone_Gate_Bldg_012" instance=ExtResource("9_cc883")]
 transform = Transform3D(-0.513516, 0.082436, 0, 0.0865783, 0.488948, 0, 0, 0, 1, 19.7426, 3.08271, 2.15941)
+
+[node name="Floor Decorations" type="Node3D" parent="NavigationRegion3D"]
+
+[node name="Path_Gravel_Env_012" parent="NavigationRegion3D/Floor Decorations" instance=ExtResource("11_i550y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.9859, 0, -20.1239)
+
+[node name="Path_Gravel_Env_013" parent="NavigationRegion3D/Floor Decorations" instance=ExtResource("11_i550y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.09422, 0, -20.1239)
+
+[node name="Path_Gravel_Env_014" parent="NavigationRegion3D/Floor Decorations" instance=ExtResource("11_i550y")]
+transform = Transform3D(-0.283965, 0, -0.958835, 0, 1, 0, 0.958835, 0, -0.283965, 18.8605, 0, -20.1239)
+
+[node name="Path_Gravel_Env_015" parent="NavigationRegion3D/Floor Decorations" instance=ExtResource("11_i550y")]
+transform = Transform3D(-0.283965, 0, -0.958835, 0, 1, 0, 0.958835, 0, -0.283965, -16.3093, 0, -20.1239)
+
+[node name="Path_Gravel_Env_016" parent="NavigationRegion3D/Floor Decorations" instance=ExtResource("11_i550y")]
+transform = Transform3D(-0.283965, 0, -0.958835, 0, 1, 0, 0.958835, 0, -0.283965, -9.36579, 0, -13.6262)
+
+[node name="Path_Stepping_Stone_Env_013" parent="NavigationRegion3D/Floor Decorations" instance=ExtResource("12_kqfjv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.69131, 0, -0.450151)
+
+[node name="Path_Stepping_Stone_Env_014" parent="NavigationRegion3D/Floor Decorations" instance=ExtResource("12_kqfjv")]
+transform = Transform3D(-0.964391, 0, 0.264479, 0, 1, 0, -0.264479, 0, -0.964391, 11.4425, 0, 7.70933)
+
+[node name="Path_Stepping_Stone_Env_015" parent="NavigationRegion3D/Floor Decorations" instance=ExtResource("12_kqfjv")]
+transform = Transform3D(0.239906, 0, 0.970796, 0, 1, 0, -0.970796, 0, 0.239906, 9.15426, 0, 15.0213)
+
+[node name="Path_Stepping_Stone_Env_016" parent="NavigationRegion3D/Floor Decorations" instance=ExtResource("12_kqfjv")]
+transform = Transform3D(-0.0184994, 0, -0.999829, 0, 1, 0, 0.999829, 0, -0.0184994, -6.00937, 0, 17.6076)
+
+[node name="Path_Stepping_Stone_Env_022" parent="NavigationRegion3D/Floor Decorations" instance=ExtResource("13_351rl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -15.6842)
+
+[node name="Path_Cobblestone_Env_044" parent="NavigationRegion3D/Floor Decorations" instance=ExtResource("14_e0psl")]
+transform = Transform3D(0.545956, 0, 0.837814, 0, 1, 0, -0.837814, 0, 0.545956, 8.04605, 0, 3.22067)
+
+[node name="Path_Cobblestone_Env_043" parent="NavigationRegion3D/Floor Decorations" instance=ExtResource("14_e0psl")]
+transform = Transform3D(0.999979, 0, 0.00656239, 0, 1, 0, -0.00656239, 0, 0.999979, 1.53147, 0, -5.997)
+
+[node name="Path_Cobblestone_Env_045" parent="NavigationRegion3D/Floor Decorations" instance=ExtResource("14_e0psl")]
+transform = Transform3D(0.930992, 0, -0.365039, 0, 1, 0, 0.365039, 0, 0.930992, 3.27781, 0, 15.8721)
+
+[node name="Path_Cobblestone_Env_046" parent="NavigationRegion3D/Floor Decorations" instance=ExtResource("14_e0psl")]
+transform = Transform3D(0.0414746, 0, 0.99914, 0, 1, 0, -0.99914, 0, 0.0414746, -0.183031, 0, 15.1555)
+
+[node name="Path_Cobblestone_Env_047" parent="NavigationRegion3D/Floor Decorations" instance=ExtResource("14_e0psl")]
+transform = Transform3D(0.281303, 0, 0.959619, 0, 1, 0, -0.959619, 0, 0.281303, -9.39186, 0, 22.3564)
+
+[node name="Horizon" type="Node3D" parent="NavigationRegion3D"]
+
+[node name="Large_Mountain_Env_022" parent="NavigationRegion3D/Horizon" instance=ExtResource("15_l5wtx")]
+transform = Transform3D(-0.935185, 0, -1.17279, 0, 1.5, 0, 1.17279, 0, -0.935185, -329.603, 0, -179.46)
+
+[node name="Large_Mountain_Env_023" parent="NavigationRegion3D/Horizon" instance=ExtResource("15_l5wtx")]
+transform = Transform3D(-1.98014, 0, 0.28118, 0, 2, 0, -0.28118, 0, -1.98014, -189.26, 0, -424.671)
+
+[node name="Large_Mountain_Env_024" parent="NavigationRegion3D/Horizon" instance=ExtResource("15_l5wtx")]
+transform = Transform3D(1.21592, 0, 0.87837, 0, 1.5, 0, -0.87837, 0, 1.21592, 319.608, 0, -373.965)
+
+[node name="Large_Mountain_Env_025" parent="NavigationRegion3D/Horizon" instance=ExtResource("15_l5wtx")]
+transform = Transform3D(0.810614, 0, 0.58558, 0, 1, 0, -0.58558, 0, 0.810614, 319.608, 0, 218.18)
+
+[node name="Large_Mountain_Env_026" parent="NavigationRegion3D/Horizon" instance=ExtResource("15_l5wtx")]
+transform = Transform3D(0.68113, 0, -0.732163, 0, 1, 0, 0.732163, 0, 0.68113, 72.5278, 0, 570.198)
+
+[node name="Large_Mountain_Env_027" parent="NavigationRegion3D/Horizon" instance=ExtResource("15_l5wtx")]
+transform = Transform3D(0.340565, 0, -0.366081, 0, 0.5, 0, 0.366081, 0, 0.340565, 72.5278, 0, 129.186)
+
+[node name="Large_Mountain_Env_028" parent="NavigationRegion3D/Horizon" instance=ExtResource("15_l5wtx")]
+transform = Transform3D(-0.287396, 0, -0.40915, 0, 0.5, 0, 0.40915, 0, -0.287396, 107.902, 0, 136.741)
+
+[node name="Large_Mountain_Env_029" parent="NavigationRegion3D/Horizon" instance=ExtResource("15_l5wtx")]
+transform = Transform3D(-0.0507278, 0, 0.49742, 0, 0.5, 0, -0.49742, 0, -0.0507278, -99.2827, 0, 136.741)
+
+[node name="Large_Mountain_Env_030" parent="NavigationRegion3D/Horizon" instance=ExtResource("15_l5wtx")]
+transform = Transform3D(0.711499, 0, -0.702687, 0, 1, 0, 0.702687, 0, 0.711499, -156.96, 0, 303.353)
+
+[node name="Large_Mountain_Env_031" parent="NavigationRegion3D/Horizon" instance=ExtResource("15_l5wtx")]
+transform = Transform3D(-0.609523, 0, -0.792769, 0, 1, 0, 0.792769, 0, -0.609523, -544.972, 0, 117.85)
+
+[node name="Large_Mountain_Env_032" parent="NavigationRegion3D/Horizon" instance=ExtResource("15_l5wtx")]
+transform = Transform3D(-0.304761, 0, -0.396384, 0, 0.5, 0, 0.396384, 0, -0.304761, -110.025, 0, 44.9631)
+
+[node name="Large_Mountain_Env_033" parent="NavigationRegion3D/Horizon" instance=ExtResource("15_l5wtx")]
+transform = Transform3D(-0.451022, 0, 0.215823, 0, 0.5, 0, -0.215823, 0, -0.451022, -111.63, 0, 81.1)
+
+[node name="Large_Mountain_Env_034" parent="NavigationRegion3D/Horizon" instance=ExtResource("15_l5wtx")]
+transform = Transform3D(0.482196, 0, 0.13224, 0, 0.5, 0, -0.13224, 0, 0.482196, -145.871, 0, -123.236)
 
 [node name="Player" parent="." instance=ExtResource("1_fy2bd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
