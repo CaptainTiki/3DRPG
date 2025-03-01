@@ -3,7 +3,7 @@ class_name ItemIcon
 
 signal interact(item)
 
-@onready var stat_label = $MarginContainer
+@onready var stat_label = $MarginContainer/StatLabel
 @onready var item_name_label: Label = $MarginContainer/ItemNameLabel
 
 
