@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b46jku7r77fry"]
+[gd_scene load_steps=16 format=3 uid="uid://b46jku7r77fry"]
 
 [ext_resource type="Script" path="res://UserInterface/user_interface.gd" id="1_3gax5"]
 [ext_resource type="Texture2D" uid="uid://cuu7luua8hkhv" path="res://Assets/UIAssets/Unitframe/HealthBarUnder.png" id="1_qqgca"]
@@ -18,6 +18,82 @@ font = ExtResource("3_ddly2")
 font_size = 26
 font_color = Color(0.960784, 0.717647, 0.423529, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_iuirp"]
+font = ExtResource("3_ddly2")
+font_size = 24
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_ghdcv"]
+color = Color(1, 1, 1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_jacxb"]
+font = ExtResource("3_ddly2")
+font_size = 36
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_nokgh"]
+resource_name = "FadeOutText"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HeadsUpDisplay/InteractContainer:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HeadsUpDisplay/InteractContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_rvp2q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HeadsUpDisplay/InteractContainer:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HeadsUpDisplay/InteractContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_d1ksh"]
+_data = {
+"FadeOutText": SubResource("Animation_nokgh"),
+"RESET": SubResource("Animation_rvp2q")
+}
+
 [node name="UserInterface" type="Control"]
 process_mode = 3
 layout_mode = 3
@@ -29,7 +105,7 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_3gax5")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="HeadsUpDisplay" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -42,18 +118,18 @@ theme_override_constants/margin_top = 32
 theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 32
 
-[node name="InfoBar" type="Control" parent="MarginContainer"]
+[node name="InfoBar" type="Control" parent="HeadsUpDisplay"]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="HealthBarUnder" type="TextureRect" parent="MarginContainer/InfoBar"]
+[node name="HealthBarUnder" type="TextureRect" parent="HeadsUpDisplay/InfoBar"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 mouse_filter = 2
 texture = ExtResource("1_qqgca")
 
-[node name="HealthBar" type="TextureProgressBar" parent="MarginContainer/InfoBar/HealthBarUnder"]
+[node name="HealthBar" type="TextureProgressBar" parent="HeadsUpDisplay/InfoBar/HealthBarUnder"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 11
@@ -66,7 +142,7 @@ grow_vertical = 2
 value = 84.0
 texture_progress = ExtResource("3_khhb8")
 
-[node name="HealthLabel" type="Label" parent="MarginContainer/InfoBar/HealthBarUnder/HealthBar"]
+[node name="HealthLabel" type="Label" parent="HeadsUpDisplay/InfoBar/HealthBarUnder/HealthBar"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(95, 0)
 layout_mode = 1
@@ -82,7 +158,7 @@ text = "999/999
 label_settings = SubResource("LabelSettings_ihs8b")
 vertical_alignment = 1
 
-[node name="XPBar" type="TextureProgressBar" parent="MarginContainer/InfoBar/HealthBarUnder"]
+[node name="XPBar" type="TextureProgressBar" parent="HeadsUpDisplay/InfoBar/HealthBarUnder"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 11
@@ -95,14 +171,14 @@ grow_vertical = 2
 value = 70.0
 texture_progress = ExtResource("4_o7cxt")
 
-[node name="HealthBarOver" type="TextureRect" parent="MarginContainer/InfoBar"]
+[node name="HealthBarOver" type="TextureRect" parent="HeadsUpDisplay/InfoBar"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 mouse_filter = 2
 texture = ExtResource("2_4sumj")
 
-[node name="LevelLabel" type="Label" parent="MarginContainer/InfoBar/HealthBarOver"]
+[node name="LevelLabel" type="Label" parent="HeadsUpDisplay/InfoBar/HealthBarOver"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(95, 0)
 layout_mode = 1
@@ -115,6 +191,38 @@ label_settings = SubResource("LabelSettings_mgli8")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="InteractContainer" type="VBoxContainer" parent="HeadsUpDisplay"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(512, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+mouse_filter = 2
+
+[node name="InteractButtonLabel" type="Label" parent="HeadsUpDisplay/InteractContainer"]
+layout_mode = 2
+text = "Press E"
+label_settings = SubResource("LabelSettings_iuirp")
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="HeadsUpDisplay/InteractContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_ghdcv")
+
+[node name="InteractTextLabel" type="Label" parent="HeadsUpDisplay/InteractContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Open Chest"
+label_settings = SubResource("LabelSettings_jacxb")
+horizontal_alignment = 1
+
 [node name="Inventory" parent="." instance=ExtResource("7_a72ww")]
 visible = false
 layout_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_d1ksh")
+}
+autoplay = "RESET"
