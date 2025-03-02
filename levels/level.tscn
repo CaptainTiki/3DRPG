@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://c1kkmug6t7vmq"]
+[gd_scene load_steps=29 format=3 uid="uid://c1kkmug6t7vmq"]
 
 [ext_resource type="PackedScene" uid="uid://c65uqhkycx504" path="res://player/player.tscn" id="1_fy2bd"]
 [ext_resource type="VoxelGIData" uid="uid://dfdqd2o6my6vy" path="res://levels/GI_data/level.VoxelGI_data.res" id="1_x6fi0"]
@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://djhf057vmr46y" path="res://Assets/Environment/Barrel_Wooden_Prop.glb" id="17_pr8w2"]
 [ext_resource type="PackedScene" uid="uid://dvd7n46m2101o" path="res://Assets/Environment/Log_Pile_Vege.glb" id="18_by7y2"]
 [ext_resource type="PackedScene" uid="uid://ekshtmi5dy6f" path="res://Interactable/chest.tscn" id="20_el0ei"]
+[ext_resource type="PackedScene" uid="uid://bgijj6e1l6lfp" path="res://UserInterface/currency_icon.tscn" id="21_sdosq"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vpcs3"]
 sky_top_color = Color(0.1375, 0.309375, 0.55, 1)
@@ -308,6 +309,10 @@ transform = Transform3D(0.482196, 0, 0.13224, 0, 0.5, 0, -0.13224, 0, 0.482196, 
 
 [node name="Chest" parent="NavigationRegion3D/Interactables" instance=ExtResource("20_el0ei")]
 transform = Transform3D(-0.00376984, 0, 0.999993, 0, 1, 0, -0.999993, 0, -0.00376984, 14.8356, 0.00391579, 17.5158)
+
+[node name="CurrencyIcon" parent="NavigationRegion3D/Interactables/Chest" instance=ExtResource("21_sdosq")]
+visible = false
+value = 20
 
 [node name="Player" parent="." instance=ExtResource("1_fy2bd")]
 transform = Transform3D(0.999941, 0, -0.0108207, 0, 1, 0, 0.0108207, 0, 0.999941, 15.4696, 1, 19.7795)

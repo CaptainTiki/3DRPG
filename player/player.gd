@@ -18,6 +18,7 @@ class_name Player
 @onready var collision_shape_3d: CollisionShape3D = $CollisionShape3D
 @onready var area_attack: ShapeCast3D = $RigPivot/AreaAttack
 @onready var user_interface: Control = $UserInterface
+@onready var interaction_cast: ShapeCast3D = $RigPivot/InteractionCast
 
 
 const JUMP_VELOCITY = 4.5
@@ -44,6 +45,8 @@ func _physics_process(delta: float) -> void:
 	handle_idle_physics_frame(delta, direction)
 	handle_slashing_physics_frame(delta)
 	handle_overhead_attack_physics_frame()
+	interaction_cast.check_interactions()
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -57,10 +60,8 @@ func _unhandled_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("Debug_On"):
 		if debug_on == true:
 			debug_on = false
-			print("Debug Off")
 		else:
 			debug_on = true
-			print("Debug On")
 	
 	if Input.is_action_just_pressed("Gain_XP"):
 		if debug_on == true:

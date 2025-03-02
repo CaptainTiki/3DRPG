@@ -28,9 +28,7 @@ var level : int = 1
 var xp : int = 1:
 	set(value):
 		xp = value
-		print(xp)
 		var boundary = percentage_level_up_boundary()
-		print("XP: ", xp, " of: ", boundary)
 		
 		while xp > boundary:
 			
