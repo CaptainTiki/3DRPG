@@ -8,6 +8,6 @@ signal interact(item)
 
 
 func _on_gui_input(event: InputEvent) -> void:
-	if event.is_action("click"):
+	if event.is_action("Left_Click"):
 		interact.emit(self)
 		
