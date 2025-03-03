@@ -1,10 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://1bowcjhnbgjk"]
+[gd_scene load_steps=10 format=3 uid="uid://1bowcjhnbgjk"]
 
 [ext_resource type="StyleBox" uid="uid://c4uf80nqhcjt8" path="res://UserInterface/UI_Panel.tres" id="1_0vneo"]
 [ext_resource type="Script" path="res://UserInterface/loot_container.gd" id="1_xpkj2"]
 [ext_resource type="Texture2D" uid="uid://fv6lf04rkcqe" path="res://Assets/UIAssets/Window/window_header.png" id="2_edpds"]
 [ext_resource type="FontFile" uid="uid://b0qpr01oiamh7" path="res://Assets/Fonts/Libre_Caslon_Text/LibreCaslonText-Bold.ttf" id="3_qarnm"]
-[ext_resource type="PackedScene" uid="uid://drg8c8h7ecrui" path="res://UserInterface/item_icon.tscn" id="4_dtebm"]
 [ext_resource type="Texture2D" uid="uid://cubaw8ciqtpvi" path="res://Assets/UIAssets/Button Small/button_small.png" id="5_l6s0l"]
 [ext_resource type="Texture2D" uid="uid://dmvtkxy0v4d2d" path="res://Assets/UIAssets/Button Small/button_small_press.png" id="6_oeyhs"]
 [ext_resource type="Texture2D" uid="uid://b0v51ba1dn4w4" path="res://Assets/UIAssets/Button Small/button_small_hover.png" id="7_ya86l"]
@@ -56,30 +55,6 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(512, 256)
 layout_mode = 2
 columns = 4
-
-[node name="ItemIcon" parent="PanelContainer/VBoxContainer/GridContainer" instance=ExtResource("4_dtebm")]
-layout_mode = 2
-
-[node name="ItemIcon2" parent="PanelContainer/VBoxContainer/GridContainer" instance=ExtResource("4_dtebm")]
-layout_mode = 2
-
-[node name="ItemIcon3" parent="PanelContainer/VBoxContainer/GridContainer" instance=ExtResource("4_dtebm")]
-layout_mode = 2
-
-[node name="ItemIcon4" parent="PanelContainer/VBoxContainer/GridContainer" instance=ExtResource("4_dtebm")]
-layout_mode = 2
-
-[node name="ItemIcon5" parent="PanelContainer/VBoxContainer/GridContainer" instance=ExtResource("4_dtebm")]
-layout_mode = 2
-
-[node name="ItemIcon6" parent="PanelContainer/VBoxContainer/GridContainer" instance=ExtResource("4_dtebm")]
-layout_mode = 2
-
-[node name="ItemIcon7" parent="PanelContainer/VBoxContainer/GridContainer" instance=ExtResource("4_dtebm")]
-layout_mode = 2
-
-[node name="ItemIcon8" parent="PanelContainer/VBoxContainer/GridContainer" instance=ExtResource("4_dtebm")]
-layout_mode = 2
 
 [node name="CloseButton" type="TextureButton" parent="PanelContainer/VBoxContainer"]
 custom_minimum_size = Vector2(200, 80)

@@ -8,5 +8,5 @@ func check_interactions() -> void:
 		if collider is LootContainer:
 			ui.update_interact_text("Open Chest")
 			if Input.is_action_just_pressed("Interact"):
-				ui.open_loot_container()
+				ui.open_loot_container(collider)
 		

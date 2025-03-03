@@ -45,5 +45,5 @@ func update_interact_text(text: String) -> void:
 	animation_player.play("FadeOutText")
 	interact_text_label.text = text
 
-func open_loot_container() -> void:
-	loot_container.open()
+func open_loot_container(loot: LootContainer) -> void:
+	loot_container.open(loot)
