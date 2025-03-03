@@ -7,6 +7,7 @@ extends Control
 @onready var inventory: Control = $Inventory
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var interact_text_label: Label = %InteractTextLabel
+@onready var loot_container: CenterContainer = $LootContainer
 
 @export var player : Player
 
@@ -43,3 +44,6 @@ func update_interact_text(text: String) -> void:
 	animation_player.stop()
 	animation_player.play("FadeOutText")
 	interact_text_label.text = text
+
+func open_loot_container() -> void:
+	loot_container.open()
