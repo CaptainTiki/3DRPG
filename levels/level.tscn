@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://c1kkmug6t7vmq"]
+[gd_scene load_steps=34 format=3 uid="uid://c1kkmug6t7vmq"]
 
 [ext_resource type="PackedScene" uid="uid://c65uqhkycx504" path="res://player/player.tscn" id="1_fy2bd"]
 [ext_resource type="VoxelGIData" uid="uid://dfdqd2o6my6vy" path="res://levels/GI_data/level.VoxelGI_data.res" id="1_x6fi0"]
@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://bgijj6e1l6lfp" path="res://UserInterface/currency_icon.tscn" id="21_sdosq"]
 [ext_resource type="PackedScene" uid="uid://c5vg7nsq74cq3" path="res://UserInterface/armor_icon.tscn" id="22_xuhmc"]
 [ext_resource type="PackedScene" uid="uid://cjugojefh3gym" path="res://UserInterface/weapon_icon.tscn" id="23_em2c1"]
+[ext_resource type="PackedScene" uid="uid://bqguar07kl1bl" path="res://Assets/Character/Gear/Broken_Sword.glb" id="23_nvlhk"]
 [ext_resource type="PackedScene" uid="uid://pbnkbbm8bjc6" path="res://Assets/Character/Gear/Battleaxe.glb" id="24_hnju4"]
 [ext_resource type="PackedScene" uid="uid://b8roixecw0m5m" path="res://UserInterface/shield_icon.tscn" id="24_tii4u"]
 
@@ -318,6 +319,12 @@ transform = Transform3D(-0.00376984, 0, 0.999993, 0, 1, 0, -0.999993, 0, -0.0037
 visible = false
 value = 20
 
+[node name="WeaponIcon3" parent="NavigationRegion3D/Interactables/Chest" instance=ExtResource("23_em2c1")]
+offset_right = 128.0
+offset_bottom = 128.0
+power = 4
+item_model = ExtResource("23_nvlhk")
+
 [node name="Chest2" parent="NavigationRegion3D/Interactables" instance=ExtResource("20_el0ei")]
 transform = Transform3D(-0.846277, 0, 0.532743, 0, 1, 0, -0.532743, 0, -0.846277, 10.1494, 0.00391579, 13.8442)
 
@@ -327,11 +334,16 @@ value = 24
 [node name="ArmorIcon" parent="NavigationRegion3D/Interactables/Chest2" instance=ExtResource("22_xuhmc")]
 power = 4
 
+[node name="WeaponIcon2" parent="NavigationRegion3D/Interactables/Chest2" instance=ExtResource("23_em2c1")]
+offset_right = 128.0
+offset_bottom = 128.0
+power = 8
+
 [node name="Chest3" parent="NavigationRegion3D/Interactables" instance=ExtResource("20_el0ei")]
 transform = Transform3D(0.53422, 0, 0.845346, 0, 1, 0, -0.845346, 0, 0.53422, 14.8845, 0.00391579, 12.1531)
 
 [node name="WeaponIcon" parent="NavigationRegion3D/Interactables/Chest3" instance=ExtResource("23_em2c1")]
-power = 17
+power = 16
 item_model = ExtResource("24_hnju4")
 
 [node name="ShieldIcon" parent="NavigationRegion3D/Interactables/Chest3" instance=ExtResource("24_tii4u")]
