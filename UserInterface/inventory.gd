@@ -34,7 +34,9 @@ func update_gear_stats() -> void:
 	attack_value.text = str(get_weapon_value())
 
 func get_weapon_value() -> int:
-	var damage = 10
+	var damage = 0
+	if get_weapon():
+		damage += get_weapon().power
 	damage += player.stats.get_damage_modifier()
 	return damage
 
@@ -64,3 +66,8 @@ func interact(item: ItemIcon) -> void:
 		equip_item(item, weapon_slot)
 	
 	update_gear_stats()
+
+func get_weapon() -> WeaponIcon:
+	if weapon_slot.get_child_count() != 1:
+		return null
+	return weapon_slot.get_child(0)
