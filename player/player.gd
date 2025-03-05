@@ -36,6 +36,7 @@ func _ready() -> void:
 	stats.level_up_notification.connect(func(): health_component.update_max_health(stats.get_max_hp()))
 	stats.update_stats.connect(user_interface.update_stats_display)
 	user_interface.update_stats_display()
+	user_interface.inventory.armor_changed.connect(health_component.update_armor_value)
 
 func _physics_process(delta: float) -> void:
 	frame_camera_rotation()
