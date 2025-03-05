@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://c1kkmug6t7vmq"]
+[gd_scene load_steps=35 format=3 uid="uid://c1kkmug6t7vmq"]
 
 [ext_resource type="PackedScene" uid="uid://c65uqhkycx504" path="res://player/player.tscn" id="1_fy2bd"]
 [ext_resource type="VoxelGIData" uid="uid://dfdqd2o6my6vy" path="res://levels/GI_data/level.VoxelGI_data.res" id="1_x6fi0"]
@@ -28,6 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://bqguar07kl1bl" path="res://Assets/Character/Gear/Broken_Sword.glb" id="23_nvlhk"]
 [ext_resource type="PackedScene" uid="uid://pbnkbbm8bjc6" path="res://Assets/Character/Gear/Battleaxe.glb" id="24_hnju4"]
 [ext_resource type="PackedScene" uid="uid://b8roixecw0m5m" path="res://UserInterface/shield_icon.tscn" id="24_tii4u"]
+[ext_resource type="PackedScene" uid="uid://cgbltld8lc28i" path="res://Assets/Character/Gear/Tall_Shield.glb" id="27_prrao"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vpcs3"]
 sky_top_color = Color(0.1375, 0.309375, 0.55, 1)
@@ -332,7 +333,11 @@ transform = Transform3D(-0.846277, 0, 0.532743, 0, 1, 0, -0.532743, 0, -0.846277
 value = 24
 
 [node name="ArmorIcon" parent="NavigationRegion3D/Interactables/Chest2" instance=ExtResource("22_xuhmc")]
-power = 4
+protection = 47
+
+[node name="ArmorIcon2" parent="NavigationRegion3D/Interactables/Chest2" instance=ExtResource("22_xuhmc")]
+protection = 24
+armor = 0
 
 [node name="WeaponIcon2" parent="NavigationRegion3D/Interactables/Chest2" instance=ExtResource("23_em2c1")]
 offset_right = 128.0
@@ -348,6 +353,10 @@ item_model = ExtResource("24_hnju4")
 
 [node name="ShieldIcon" parent="NavigationRegion3D/Interactables/Chest3" instance=ExtResource("24_tii4u")]
 protection = 7
+
+[node name="ShieldIcon2" parent="NavigationRegion3D/Interactables/Chest3" instance=ExtResource("24_tii4u")]
+protection = 18
+item_model = ExtResource("27_prrao")
 
 [node name="Player" parent="." instance=ExtResource("1_fy2bd")]
 transform = Transform3D(0.999941, 0, -0.0108207, 0, 1, 0, 0.0108207, 0, 0.999941, 15.4696, 1, 19.7795)
