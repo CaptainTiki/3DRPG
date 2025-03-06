@@ -13,5 +13,6 @@ func change_scene(next_level: String, player: Player) -> void:
 	tween.tween_interval(0.1)
 	tween.tween_callback(
 		func():
+			PersistentData.cache_gear(player)
 			get_tree().change_scene_to_file(next_level)
 	)

@@ -28,6 +28,7 @@ signal armor_changed(protection: float)
 		
 func _ready() -> void:
 	update_stats()
+	load_items_from_persistant_data()
 
 func update_stats() -> void:
 	strength_value.text = str(player.stats.strength.ability_score)
@@ -106,3 +107,7 @@ func get_armor() -> ArmorIcon:
 	if armor_slot.get_child_count() != 1:
 		return null
 	return armor_slot.get_child(0)
+
+func load_items_from_persistant_data() -> void:
+	for item in PersistentData.get_inventory():
+		add_item(item)
