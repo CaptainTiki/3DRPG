@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://b71wgveipu153"]
 
-[ext_resource type="Script" path="res://enemy/enemy.gd" id="1_8hquk"]
+[ext_resource type="Script" uid="uid://cwhujpr1fb6y6" path="res://enemy/enemy.gd" id="1_8hquk"]
 [ext_resource type="PackedScene" uid="uid://djilktth5kxls" path="res://Assets/Character/Gear/Short_Shield.glb" id="2_krxdd"]
 [ext_resource type="PackedScene" uid="uid://brkes6oa2ksbn" path="res://player/rig.tscn" id="2_kxoty"]
 [ext_resource type="PackedScene" uid="uid://cgbltld8lc28i" path="res://Assets/Character/Gear/Tall_Shield.glb" id="3_aqv7m"]

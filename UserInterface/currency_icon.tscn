@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://drg8c8h7ecrui" path="res://UserInterface/item_icon.tscn" id="1_orccc"]
 [ext_resource type="Texture2D" uid="uid://wq1kbf4lvaup" path="res://Assets/UIAssets/Icons/star_icon.png" id="2_0074a"]
-[ext_resource type="Script" path="res://UserInterface/currency_icon.gd" id="2_amb66"]
+[ext_resource type="Script" uid="uid://c0jwomrfey3x" path="res://UserInterface/currency_icon.gd" id="2_amb66"]
 
 [node name="CurrencyIcon" instance=ExtResource("1_orccc")]
 script = ExtResource("2_amb66")

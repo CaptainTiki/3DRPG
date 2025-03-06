@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://c5vg7nsq74cq3"]
 
 [ext_resource type="PackedScene" uid="uid://drg8c8h7ecrui" path="res://UserInterface/item_icon.tscn" id="1_8k20d"]
-[ext_resource type="Script" path="res://UserInterface/armor_icon.gd" id="2_3t2ya"]
+[ext_resource type="Script" uid="uid://bmfqfjrvwmpq8" path="res://UserInterface/armor_icon.gd" id="2_3t2ya"]
 
 [node name="ArmorIcon" instance=ExtResource("1_8k20d")]
 script = ExtResource("2_3t2ya")
-power = 0
+protection = 0
 armor = 1

@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://8q1svgle1hmh" path="res://Assets/UIAssets/Icons/spell_slot_empty.png" id="1_cbb7c"]
 [ext_resource type="Texture2D" uid="uid://ceo805pp5cyty" path="res://Assets/UIAssets/Icons/ItemPress.png" id="2_vsq21"]
 [ext_resource type="Texture2D" uid="uid://d3oqvu158fncg" path="res://Assets/UIAssets/Icons/ItemHover.png" id="3_u4mm2"]
-[ext_resource type="Script" path="res://UserInterface/item_icon.gd" id="4_hkxvi"]
+[ext_resource type="Script" uid="uid://53slrekyw6vw" path="res://UserInterface/item_icon.gd" id="4_hkxvi"]
 [ext_resource type="Texture2D" uid="uid://bimexu1us5w4k" path="res://Assets/UIAssets/Icons/armor_icon.png" id="4_tyuoo"]
 [ext_resource type="FontFile" uid="uid://b0qpr01oiamh7" path="res://Assets/Fonts/Libre_Caslon_Text/LibreCaslonText-Bold.ttf" id="5_a8m7l"]
 [ext_resource type="FontFile" uid="uid://ckdo07woiqi3u" path="res://Assets/Fonts/Libre_Caslon_Text/LibreCaslonText-Italic.ttf" id="6_sfh5g"]

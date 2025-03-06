@@ -1,6 +1,6 @@
 [gd_scene load_steps=24 format=3 uid="uid://duroi45niqbuu"]
 
-[ext_resource type="Script" path="res://UserInterface/inventory.gd" id="1_5xa36"]
+[ext_resource type="Script" uid="uid://dc43vu16fn6fo" path="res://UserInterface/inventory.gd" id="1_5xa36"]
 [ext_resource type="Texture2D" uid="uid://fv6lf04rkcqe" path="res://Assets/UIAssets/Window/window_header.png" id="1_r1yhr"]
 [ext_resource type="FontFile" uid="uid://b0qpr01oiamh7" path="res://Assets/Fonts/Libre_Caslon_Text/LibreCaslonText-Bold.ttf" id="2_nhlud"]
 [ext_resource type="StyleBox" uid="uid://c4uf80nqhcjt8" path="res://UserInterface/UI_Panel.tres" id="3_sddwn"]
@@ -164,7 +164,7 @@ stretch = true
 world_3d = SubResource("World3D_8qb5x")
 transparent_bg = true
 handle_input_locally = false
-size = Vector2i(512, 868)
+size = Vector2i(512, 2)
 render_target_update_mode = 4
 
 [node name="Rig" parent="MarginContainer/VBoxContainer/HBoxContainer/SubViewportContainer/SubViewport" groups=["PlayerRig"] instance=ExtResource("5_dj76h")]

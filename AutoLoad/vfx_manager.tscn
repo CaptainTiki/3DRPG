@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://oxplpbf510x5"]
 
-[ext_resource type="Script" path="res://AutoLoad/vfx_manager.gd" id="1_86ydx"]
+[ext_resource type="Script" uid="uid://nw5vedhmpet3" path="res://AutoLoad/vfx_manager.gd" id="1_86ydx"]
 
 [node name="VFXManager" type="Node3D"]
 script = ExtResource("1_86ydx")

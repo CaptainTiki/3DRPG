@@ -1,7 +1,7 @@
 [gd_scene load_steps=22 format=3 uid="uid://brkes6oa2ksbn"]
 
 [ext_resource type="PackedScene" uid="uid://bk4w76uph1mqj" path="res://Assets/Character/CharacterRig.glb" id="1_6e2qu"]
-[ext_resource type="Script" path="res://player/rig.gd" id="1_j4ts7"]
+[ext_resource type="Script" uid="uid://bfbt0c6dshvrn" path="res://player/rig.gd" id="1_j4ts7"]
 [ext_resource type="PackedScene" uid="uid://ygbnxehrsf3g" path="res://Assets/Character/Gear/Longsword.glb" id="3_4jenh"]
 [ext_resource type="PackedScene" uid="uid://djilktth5kxls" path="res://Assets/Character/Gear/Short_Shield.glb" id="4_lu46v"]
 
