@@ -22,6 +22,7 @@ outline_size = 2
 outline_color = Color(0, 0, 0, 1)
 
 [node name="ItemIcon" type="TextureButton"]
+visible = false
 custom_minimum_size = Vector2(128, 128)
 offset_right = 40.0
 offset_bottom = 40.0

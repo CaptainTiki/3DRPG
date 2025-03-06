@@ -7,6 +7,7 @@ class_name ArmorIcon
 enum armor_type {IRON_PLATE, STEEL_PLATE}
 
 func _ready() -> void:
+	visible = false
 	stat_label.text = "+" + str(protection)
 	item_name_label.text = armor_type.keys()[armor]
 	item_name_label.text = item_name_label.text.capitalize()
