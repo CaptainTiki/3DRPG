@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://cpxomjl16ovi"]
+[gd_scene load_steps=6 format=3 uid="uid://cpxomjl16ovi"]
 
 [ext_resource type="Script" uid="uid://cytyuyude6ogd" path="res://AutoLoad/persistent_data.gd" id="1_x0bv8"]
+[ext_resource type="PackedScene" uid="uid://cjugojefh3gym" path="res://UserInterface/weapon_icon.tscn" id="2_27xxn"]
+[ext_resource type="PackedScene" uid="uid://bqguar07kl1bl" path="res://Assets/Character/Gear/Broken_Sword.glb" id="3_17dsp"]
+[ext_resource type="PackedScene" uid="uid://b8roixecw0m5m" path="res://UserInterface/shield_icon.tscn" id="4_w7tlf"]
+[ext_resource type="PackedScene" uid="uid://c5vg7nsq74cq3" path="res://UserInterface/armor_icon.tscn" id="5_dpqbt"]
 
 [node name="PersistentData" type="Control"]
 layout_mode = 3
@@ -17,3 +21,44 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 mouse_filter = 2
+
+[node name="EquippedWeapon" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="WeaponIcon" parent="EquippedWeapon" instance=ExtResource("2_27xxn")]
+visible = true
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 128.0
+power = 4
+item_model = ExtResource("3_17dsp")
+
+[node name="EquippedShield" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="ShieldIcon" parent="EquippedShield" instance=ExtResource("4_w7tlf")]
+visible = true
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 128.0
+protection = 5
+
+[node name="EquippedArmor" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="ArmorIcon" parent="EquippedArmor" instance=ExtResource("5_dpqbt")]
+visible = true
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 128.0
+protection = 8
+armor = 0

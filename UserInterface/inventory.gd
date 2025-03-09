@@ -58,8 +58,6 @@ func get_armor_value() -> int:
 	armor = clampf(armor, MIN_ARMOR_RATING, MAX_ARMOR_RATING)
 	return armor
 
-
-
 func _on_texture_button_pressed() -> void:
 	get_parent().close_menu()
 
@@ -68,10 +66,11 @@ func add_item(icon: ItemIcon) -> void:
 		icon.interact.disconnect(connection["callable"])
 	icon.get_parent().remove_child(icon)
 	item_grid.add_child(icon)
+	print("New Parent: ", icon.get_parent())
+	print("icon.visible = " + str(icon.visible))
 	icon.interact.connect(interact)
 
 func add_currency(currency_in: int) -> void:
-	print(gold)
 	gold += currency_in
 
 func equip_item(item: ItemIcon, item_slot: CenterContainer) -> void:
@@ -81,6 +80,8 @@ func equip_item(item: ItemIcon, item_slot: CenterContainer) -> void:
 	item_slot.add_child(item)
 
 func interact(item: ItemIcon) -> void:
+	#lets enforce visibility 
+	item.visible = true
 	if item is WeaponIcon:
 		equip_item(item, weapon_slot)
 		get_tree().call_group("PlayerRig", "replace_weapon", item.item_model)
@@ -100,6 +101,7 @@ func get_weapon() -> WeaponIcon:
 
 func get_sheild() -> ShieldIcon:
 	if sheild_slot.get_child_count() != 1:
+		print(sheild_slot.get_child_count())
 		return null
 	return sheild_slot.get_child(0)
 
@@ -111,3 +113,6 @@ func get_armor() -> ArmorIcon:
 func load_items_from_persistant_data() -> void:
 	for item in PersistentData.get_inventory():
 		add_item(item)
+	for item in PersistentData.get_equipped_items():
+		add_item(item)
+		interact(item)
