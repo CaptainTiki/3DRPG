@@ -66,8 +66,6 @@ func add_item(icon: ItemIcon) -> void:
 		icon.interact.disconnect(connection["callable"])
 	icon.get_parent().remove_child(icon)
 	item_grid.add_child(icon)
-	print("New Parent: ", icon.get_parent())
-	print("icon.visible = " + str(icon.visible))
 	icon.interact.connect(interact)
 
 func add_currency(currency_in: int) -> void:
@@ -116,3 +114,4 @@ func load_items_from_persistant_data() -> void:
 	for item in PersistentData.get_equipped_items():
 		add_item(item)
 		interact(item)
+	gold = PersistentData.currency

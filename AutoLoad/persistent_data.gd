@@ -4,6 +4,8 @@ extends Control
 @onready var equipped_weapon: Control = $EquippedWeapon
 @onready var equipped_shield: Control = $EquippedShield
 @onready var equipped_armor: Control = $EquippedArmor
+@onready var currency : int = 0
+@onready var current_health : int = 0
 
 func cache_gear(player: Player) -> void:
 	for item in player.user_interface.inventory.item_grid.get_children():
@@ -11,9 +13,16 @@ func cache_gear(player: Player) -> void:
 	cache_item(player.user_interface.inventory.get_weapon(), equipped_weapon)
 	cache_item(player.user_interface.inventory.get_sheild(), equipped_shield)
 	cache_item(player.user_interface.inventory.get_armor(), equipped_armor)
+	currency = player.user_interface.inventory.gold
+
+func cache_player_data(player: Player) -> void:
+	current_health = player.health_component.current_health
 
 func get_inventory() -> Array:
 	return inventory_node.get_children()
+
+func get_currency() -> int:
+	return currency
 
 func get_equipped_items() -> Array:
 	var equipped_items := []
