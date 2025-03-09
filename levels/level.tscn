@@ -377,16 +377,12 @@ transform = Transform3D(0.999941, 0, -0.0108207, 0, 1, 0, 0.0108207, 0, 0.999941
 
 [node name="Enemy" parent="Enemies" instance=ExtResource("6_hj4v4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.9259, 0.999999, -19.4533)
-movement_speed = 0.2
 
 [node name="Enemy1" parent="Enemies" instance=ExtResource("6_hj4v4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.93395, 0.999999, -19.4533)
-movement_speed = 0.2
 
 [node name="Enemy2" parent="Enemies" instance=ExtResource("6_hj4v4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.2253, 0.999999, -11.6182)
-movement_speed = 0.2
 
 [node name="Enemy3" parent="Enemies" instance=ExtResource("6_hj4v4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.2253, 0.999999, 17.7071)
-movement_speed = 0.2
